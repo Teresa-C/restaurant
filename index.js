@@ -1,71 +1,94 @@
 const menu = [
   {
     id: 1,
-    title: "buttermilk pancakes",
+    title: "Buttermilk Pancakes",
     category: "breakfast",
     price: 15.99,
     img: "./images/item-1.jpeg",
-    desc: `I'm baby woke mlkshk wolf bitters live-edge bottle, hammock freegan copper mug whatever cold-pressed `,
+    desc: `Delicious buttermilk pancakes loaded with fresh fruits. Served with a rich, whipped cream. Sprinkled with powdered sugar.`,
   },
   {
     id: 2,
-    title: "diner double",
+    title: "Diner Double",
     category: "lunch",
     price: 13.99,
     img: "./images/item-2.jpeg",
-    desc: `vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats `,
+    desc: `Double Burger served with cheddar cheese, mayo, mustard, lettuce, grilled onions and pickles. Served with a side of chips. `,
   },
-  {
-    id: 3,
-    title: "godzilla milkshake",
-    category: "drink",
-    price: 6.99,
-    img: "./images/item-3.jpeg",
-    desc: `ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.`,
+  { id: 3,
+    title: "Egg Attack",
+    category: "lunch",
+    price: 12.99,
+    img: "./images/item-5.jpeg",
+    desc: `Beef burger served with fried egg, american cheese, tomato and lettuce.`,
   },
   {
     id: 4,
-    title: "country delight",
+    title: "Country Delight",
     category: "breakfast",
-    price: 20.99,
+    price: 9.99,
     img: "./images/item-4.jpeg",
-    desc: `Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, `,
+    desc: `A quick easy delicious options. Toast served with eggs, baked beans and cheese.`,
   },
   {
     id: 5,
-    title: "egg attack",
-    category: "lunch",
-    price: 22.99,
-    img: "./images/item-5.jpeg",
-    desc: `franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up `,
+    title: "Godzilla Milkshake",
+    category: "drink",
+    price: 6.99,
+    img: "./images/item-3.jpeg",
+    desc: `This strawberry milkshake incorporates all the flavors and textures of a classic strawberry shortcakes`,
   },
   {
     id: 6,
-    title: "oreo dream",
+    title: "Oreo Dream",
     category: "drink",
-    price: 18.99,
+    price: 8.99,
     img: "./images/item-6.jpeg",
-    desc: `Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday`,
+    desc: `Try our oreo Shake, the perfect sweet treat for any time of the day. Our shake is made with delicious soft serve, chocolate syrup.`,
   },
   {
     id: 7,
-    title: "bacon overflow",
+    title: "Bacon Overflow",
     category: "breakfast",
     price: 8.99,
     img: "./images/item-7.jpeg",
-    desc: `carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird `,
+    desc: `This ultimate bacon overload burger is sure to please the bacon lover in your family.`,
   },
   {
     id: 8,
-    title: "american classic",
+    title: "American Classic",
     category: "lunch",
-    price: 12.99,
+    price: 15.99,
     img: "./images/item-8.jpeg",
-    desc: `on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut  `,
+    desc: `Our tasty burgers are fully loaded and served with fries. Fancy something different? Try the american classic burger topped with egg, beef, lettuce.`,
   }
 ];
 
+const wholeMenu = (element) => {
+  return `<div class="main-container">
+    <div>
+      <img src=${element.img} alt="${element.title}" class="image">
+    </div>
+    <div class="left">
+      <div class="info">
+        <h5 data-id="title">${element.title}</h5>
+        <h5 class="price">£${element.price}</h5>
+      </div>
+      <p>${element.desc}</p>
+    </div>
+  </div>`
+}
+
+const fullMenu = (menu) => {
+  const menuList = []
+  menu.forEach(element => {
+    menuList.push(wholeMenu(element))
+  })
+  return menuList.join(" ")
+}
+
 const main = document.querySelector('.main')
+main.innerHTML = fullMenu(menu)
 const btn = document.querySelectorAll('.btn').forEach((btn)=>{
   btn.addEventListener("click",(event)=>{
     const result = []
@@ -82,45 +105,3 @@ const btn = document.querySelectorAll('.btn').forEach((btn)=>{
     }
   });
 });
-
-
-const wholeMenu = (element) => {
-  return `<div class="main-container">
-        <img src=${element.img} alt="${element.title}" class="image">
-        <div>
-          <div class="info">
-            <h5 data-id="title">${element.title}</h5>
-            <h5 class="price">£${element.price}</h5>
-          </div>
-          <p>${element.desc}</p>
-        </div>
-      </div>`
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
