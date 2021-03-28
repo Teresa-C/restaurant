@@ -71,7 +71,6 @@ const btn = document.querySelectorAll('.btn').forEach((btn)=>{
     const result = []
     menu.forEach(element => {
       if (element.category === event.currentTarget.dataset.id){
-        // main.insertAdjacentHTML('beforeend', wholeMenu(element))
         result.push(wholeMenu(element))
       }
       main.innerHTML = result.join(' ')
@@ -90,8 +89,8 @@ const wholeMenu = (element) => {
         <img src=${element.img} alt="${element.title}" class="image">
         <div>
           <div class="info">
-            <h4 data-id="title">${element.title}</h4>
-            <h4>${element.price}</h4>
+            <h5 data-id="title">${element.title}</h5>
+            <h5 class="price">£${element.price}</h5>
           </div>
           <p>${element.desc}</p>
         </div>
