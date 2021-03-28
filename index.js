@@ -68,10 +68,13 @@ const menu = [
 const main = document.querySelector('.main')
 const btn = document.querySelectorAll('.btn').forEach((btn)=>{
   btn.addEventListener("click",(event)=>{
+    const result = []
     menu.forEach(element => {
       if (element.category === event.currentTarget.dataset.id){
-        main.insertAdjacentHTML('beforeend', wholeMenu(element))
+        // main.insertAdjacentHTML('beforeend', wholeMenu(element))
+        result.push(wholeMenu(element))
       }
+      main.innerHTML = result.join(' ')
     });
     if (event.currentTarget.dataset.id === "all"){
       menu.forEach(element => {
